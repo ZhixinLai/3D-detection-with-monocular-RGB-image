@@ -33,7 +33,7 @@ First, calculate the average dimension for each class. Second, regress the offse
 This part is hardest to comprehend and needs background of projection principle and different coordinate systems.
 #### Different thought:
 * Method one: According to paper1, we can use the 2D box and 3D box relationship to inference 3D location. As we can see from the figure blew, some vertexs of 3D boxes locats in the line of 2D boxes. We can use this principle to do inference location coordinate. First, assuming the location coordinate(center point in 3D box) as x, y, z and then use dimension and orientation figure to calculate the coordinates of 8 vertexs with xyz. Second, transfer the 8 coordinates from world coordinate system into camera coordinate system. Third, each vertex of 3D box is possible located in each line of 2D box, thus there are 4^8 cases. However, because of some priori knowledge and angle prediction result, the number of cases reduce to 64. In this step, we get 64 equations and each quations comtains 4 equation. Forth, solve the 64 equations and then select the best solution as location coordinate xyz.
-<img>  
+![img images/img1.png] 
 
 * Method two: According to papaer2, because of the priori knowledge that objects in self-driving scene are on the ground, we can use the height, 2D box and projection constraint to inference the depth information(z). And then use z to inference xy with projection constraint.
 
