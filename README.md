@@ -10,7 +10,7 @@ I did the 3D detection research during my internship in MEGVII and most codes in
 Don't leave!!!
 I want to share my viewpoint and thoughts about 3D detection with monoculr RGB images. The hardest part and the most tricky part is how to use monocular RGB images to predict location, so I decide to post the code used for predicting location information in 3D space with 2D boxes after being addimitted by mentor. This part code only uses Numpy and math module rather than deep learning framework. Besides, I will also compare different methods to predict orientation and location inference and show the results.
 ## Data set and structure
-Kitti 2d object: http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=2d
+Kitti 2d object: http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=2d  
 Input: monoculr RGB image; 2D boxes, dimension, orientation, and location of objects; Camera's inner and outer parameter.
 Data form: JSON.
 ## Overall Thought
@@ -32,17 +32,24 @@ First, calculate the average dimension for each class. Second, regress the offse
 ### Location inference(Tricky part)
 This part is hardest to comprehend and needs background of projection principle and different coordinate systems.
 #### Different thought:
-* Method one: According to paper1, we can use the 2D box and 3D box relationship to inference 3D location. As we can see from the figure blew, some vertexs of 3D boxes locats in the line of 2D boxes. We can use this principle to do inference location coordinate. First, assuming the location coordinate(center point in 3D box) as x, y, z and then use dimension and orientation figure to calculate the coordinates of 8 vertexs with xyz. Second, transfer the 8 coordinates from world coordinate system into camera coordinate system. Third,  
+* Method one: According to paper1, we can use the 2D box and 3D box relationship to inference 3D location. As we can see from the figure blew, some vertexs of 3D boxes locats in the line of 2D boxes. We can use this principle to do inference location coordinate. First, assuming the location coordinate(center point in 3D box) as x, y, z and then use dimension and orientation figure to calculate the coordinates of 8 vertexs with xyz. Second, transfer the 8 coordinates from world coordinate system into camera coordinate system. Third, each vertex of 3D box is possible located in each line of 2D box, thus there are 4^8 cases. However, because of some priori knowledge and angle prediction result, the number of cases reduce to 64. In this step, we get 64 equations and each quations comtains 4 equation. Forth, solve the 64 equations and then select the best solution as location coordinate xyz.
+<img>
 
-* Method one:
+* Method two: According to papaer2, because of the priori knowledge that objects in self-driving scene are on the ground, we can use the height, 2D box and projection constraint to inference the depth information(z). And then use z to inference xy with projection constraint.
 
-* Method one:
-
-## BaseModel and Backbone
-
-## Experient
+<img>
+* Method three: The method two supposes that after being projected into 2D images, the center point of 3D box coincide with center point of 2D boxes. Actually, the two points will not coincides with each other exactly. According to paper3, we can predict the 3D projected point in 2D image first(shown as blew) and then use the point to step into method two.
+<img>
 
 ## Results
-
-
-## 
+### 2D box prediction
+<img>
+### 2D box prediction
+#### method one
+<img>
+#### method two
+<img>
+#### method three
+<img>
+## conclusion
+<img>
