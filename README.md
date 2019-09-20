@@ -1,9 +1,9 @@
 # 3D-detection-with-monocular-RGB-image  
 Reference Paper: 
-Paper1: 3D Bounding Box Estimation Using Deep Learning and Geometry  URL: https://arxiv.org/abs/1612.00496
-Paper2: Monocular 3D Object Detection Leveraging Accurate Proposals and Shape Reconstruction  URL: https://arxiv.org/abs/1904.01690
-Paper3: 3D Bounding Boxes for Road Vehicles: A One-Stage, Localization Prioritized Approach using Single Monocular Images 
-URL: https://link.springer.com/chapter/10.1007%2F978-3-030-11021-5_39
+Paper1: 3D Bounding Box Estimation Using Deep Learning and Geometry  URL: https://arxiv.org/abs/1612.00496  
+Paper2: Monocular 3D Object Detection Leveraging Accurate Proposals and Shape Reconstruction  URL: https://arxiv.org/abs/1904.01690  
+Paper3: 3D Bounding Boxes for Road Vehicles: A One-Stage, Localization Prioritized Approach using Single Monocular Images   
+URL: https://link.springer.com/chapter/10.1007%2F978-3-030-11021-5_39  
 
 Note: I did the 3D detection research during my internship in MEGVII and most codes including training, testing, lib codes are not allowed posted online, because the codes contains the basemodel and framework information of MEGVII. 
 I want to share my viewpoint and thoughts about 3D detection with monoculr RGB images. The hardest part and the most tricky part is how to use monocular RGB images to predict location, so I decide to post the code used for predicting location information in 3D space with 2D boxes after being addimitted by mentor.
