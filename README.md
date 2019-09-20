@@ -38,7 +38,7 @@ This part is hardest to comprehend and needs background of projection principle 
 * Method two: According to papaer2, because of the priori knowledge that objects in self-driving scene are on the ground, we can use the height, 2D box and projection constraint to inference the depth information(z). And then use z to inference xy with projection constraint.
 
 <img>
-* Method three: The method two supposes that after being projected into 2D images, the center point of 3D box coincide with center point of 2D boxes. Actually, the two points will not coincides with each other exactly. According to paper3, we can predict the 3D projected point in 2D image first(shown as blew) and then use the point to step into method two.
+*  Method three: The method two supposes that after being projected into 2D images, the center point of 3D box coincide with center point of 2D boxes. Actually, the two points will not coincides with each other exactly. According to paper3, we can predict the 3D projected point in 2D image first(shown as blew) and then use the point to step into method two.
 <img>
 
 ## Results
