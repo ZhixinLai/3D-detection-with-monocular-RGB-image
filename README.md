@@ -6,9 +6,9 @@ Paper2: Monocular 3D Object Detection Leveraging Accurate Proposals and Shape Re
 URL: https://arxiv.org/abs/1904.01690    
 Paper3: 3D Bounding Boxes for Road Vehicles: A One-Stage, Localization Prioritized Approach using Single Monocular Images URL: https://link.springer.com/chapter/10.1007%2F978-3-030-11021-5_39  
 
-Note: I did the 3D detection research during my internship in MEGVII and most codes including training, testing, lib codes are not allowed posted online, because the codes contains the basemodel and framework information of MEGVII. 
-I want to share my viewpoint and thoughts about 3D detection with monoculr RGB images. The hardest part and the most tricky part is how to use monocular RGB images to predict location, so I decide to post the code used for predicting location information in 3D space with 2D boxes after being addimitted by mentor.
-The code only uses Numpy and math module.
+I did the 3D detection research during my internship in MEGVII and most codes including training, testing, lib codes are not allowed posted online, because the codes contains the basemodel and framework information of MEGVII.  
+Don't leave!!!
+I want to share my viewpoint and thoughts about 3D detection with monoculr RGB images. The hardest part and the most tricky part is how to use monocular RGB images to predict location, so I decide to post the code used for predicting location information in 3D space with 2D boxes after being addimitted by mentor. This part code only uses Numpy and math module rather than deep learning framework. Besides, I will also compare different methods to predict orientation and location inference and show the results.
 ## Data set and structure
 Kitti 2d object: http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=2d
 Input: monoculr RGB image; 2D boxes, dimension, orientation, and location of objects; Camera's inner and outer parameter.
@@ -29,9 +29,15 @@ Dividing 2Pi into 4 bins has best performance.
 ### Dimension prediction
 Because the objects in Kitti set ranges a lot, it will has bad performance if we predict the dimension for all object directly.
 First, calculate the average dimension for each class. Second, regress the offset of each object. Third, according to the object class predicted in the first step, add the average dimension and offset.
-### Location inference
+### Location inference(Tricky part)
 This part is hardest to comprehend and needs background of projection principle and different coordinate systems.
-The blog helps learn the background knowledge:
+#### Different thought:
+* Method one: According to paper1, we can use the 2D box and 3D box relationship to inference 3D location. As we can see from the figure blew, some vertexs of 3D boxes locats in the line of 2D boxes. We can use this principle to do inference location coordinate. First, assuming the location coordinate(center point in 3D box) as x, y, z and then use dimension and orientation figure to calculate the coordinates of 8 vertexs with xyz. Second, transfer the 8 coordinates from world coordinate system into camera coordinate system. Third,  
+
+* Method one:
+
+* Method one:
+
 ## BaseModel and Backbone
 
 ## Experient
