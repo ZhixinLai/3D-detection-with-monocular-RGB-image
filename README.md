@@ -42,16 +42,18 @@ This part is hardest to comprehend and needs background of projection principle 
 ![image](https://github.com/ZhixinLai/3D-detection-with-monocular-RGB-image/blob/master/images/img3.png)  
 
 ## Results
-The best performance:
-car_detection AP: 96.452675 86.783386 77.942184
-car_orientation AP: 93.204292 82.368660 73.366890
-pedestrian_detection AP: 69.537376 60.686756 52.112762
-pedestrian_orientation AP: 51.052326 44.875721 38.976936
-cyclist_detection AP: 65.076256 47.723835 46.861427
-cyclist_orientation AP: 40.380432 30.131805 29.838795
-### 2D box prediction
-
-### 3D box prediction  
-
+The best performance:  
+car_detection AP: 96.452675 86.783386 77.942184  
+car_orientation AP: 93.204292 82.368660 73.366890  
+pedestrian_detection AP: 69.537376 60.686756 52.112762  
+pedestrian_orientation AP: 51.052326 44.875721 38.976936  
+cyclist_detection AP: 65.076256 47.723835 46.861427  
+cyclist_orientation AP: 40.380432 30.131805 29.838795  
+### 2D box prediction visualization  
+![image](https://github.com/ZhixinLai/3D-detection-with-monocular-RGB-image/blob/master/images/img4.png)  
+### 3D box prediction visualization  
+![image](https://github.com/ZhixinLai/3D-detection-with-monocular-RGB-image/blob/master/images/img5.png)    
+![image](https://github.com/ZhixinLai/3D-detection-with-monocular-RGB-image/blob/master/images/img6.png)   
+![image](https://github.com/ZhixinLai/3D-detection-with-monocular-RGB-image/blob/master/images/img7.png)     
 ## conclusion  
 <img>  
