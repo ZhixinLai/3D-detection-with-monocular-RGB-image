@@ -24,7 +24,7 @@ Because of the 2pi range is hard for model to learn, thus divides the 2pi range 
 * predic the alpha directly and used the space constraint to inference Sida_y  vs   predict the Sida_y directly
 Paper1 explains the reason why should use method one to do angle prediction, but actually the method two has better performance after doing experients.
 * predict angle direcly vs predict sin & cos
-they have nearly the same performance.
+sin & cos is better.
 * numbers of bin
 Dividing 2Pi into 4 bins has best performance.
 ### Dimension prediction
@@ -56,4 +56,5 @@ cyclist_orientation AP: 40.380432 30.131805 29.838795
 ![image](https://github.com/ZhixinLai/3D-detection-with-monocular-RGB-image/blob/master/images/img6.png)   
 ![image](https://github.com/ZhixinLai/3D-detection-with-monocular-RGB-image/blob/master/images/img7.png)     
 ## conclusion  
-<img>  
+As for orientation prediction, divide sida_y into 4bins and regress sin cos is better.  
+As for Location inference, method one has better performance.
