@@ -10,10 +10,9 @@ The code only uses Numpy and math module.
 Kitti 2d object: http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=2d
 Input: monoculr RGB image; 2D boxes, dimension, orientation, and location of objects; Camera's inner and outer parameter.
 Data form: JSON.
-
 ## Overall Thought
-2D box prediction + Orientation prediction + dimentation prediction --> Location inference --> visualization
-### 2D box prediction
+Class and 2D box prediction + Orientation prediction + dimentation prediction --> Location inference --> visualization
+### Class and 2D box prediction
 Applied Faster RCNN and resnet as backbone with 2FNN as header to predict the 2D boxes (left-top point and right-bottom point).
 ### Orientation prediction
 Because of the 2pi range is hard for model to learn, thus divides the 2pi range into several bins and predict the bin class and offset regression has better performance.
@@ -21,9 +20,15 @@ Because of the 2pi range is hard for model to learn, thus divides the 2pi range 
 * predic the alpha directly and used the space constraint to inference Sida_y  vs   predict the Sida_y directly
 Paper1 explains the reason why should use method one to do angle prediction, but actually the method two has better performance after doing experients.
 * predict angle direcly vs predict sin & cos
-same performance
+they have nearly the same performance.
 * numbers of bin
-4 is best
+Dividing 2Pi into 4 bins has best performance.
+### Dimension prediction
+Because the objects in Kitti set ranges a lot, it will has bad performance if we predict the dimension for all object directly.
+First, calculate the average dimension for each class. Second, regress the offset of each object. Third, according to the object class predicted in the first step, add the average dimension and offset.
+### Location inference
+This part is hardest to comprehend and needs background of projection principle and different coordinate systems.
+The blog helps learn the background knowledge:
 ## BaseModel and Backbone
 
 ## Experient
